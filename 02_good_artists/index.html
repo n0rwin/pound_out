@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Playfair+Display|Slabo+27px" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <Title>#OUT 02 - Good artist</Title>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <div class="header-text-background">
+                    <h1>#OUT 02 - Good artists...</h1>
+                </div>
+            </header>
+            <div class="introduction-text">
+                <p>
+                    <a href="https://quoteinvestigator.com/2013/03/06/artists-steal/">... copy, great artists steal.</a><br/>
+                    So copying something makes me a good artist? - Yay!<br />
+                    On today's <span class="emphasize">#OUT</span>, just a little bit of playing around with images. Enjoy!
+                </p>
+            </div>
+            <div class="images-area">
+                <div class="images">
+                    <div class="image-container grow" />
+                        <img src="img/img_1.jpeg" />
+                        <p class="image-description">Woman with headphones enjoying music. <a href="https://www.pexels.com/photo/photography-of-woman-listening-to-music-761963/">Source</a></p>
+                    </div>
+                    <div class="image-container grow" />
+                        <img src="img/img_2.jpeg" />
+                        <p class="image-description">Couple hugging each other in winter landscape. <a href="https://www.pexels.com/photo/couple-love-together-hug-45644/">Source</a></p>
+                    </div>
+                    <div class="image-container grow" />
+                        <img src="img/img_3.jpeg" />
+                        <p class="image-description">Man with hat staring at lake. <a href="https://www.pexels.com/photo/back-view-boy-conifers-daylight-241408/">Source</a></p>
+                    </div>
+                    <div class="image-container grow" />
+                        <img src="img/img_4.jpeg" />
+                        <p class="image-description">Group fist bump in office environment. <a href="https://www.pexels.com/photo/colleagues-cooperation-fist-bump-fists-398532/">Source</a></p>
+                    </div>
+                    <div class="image-container grow" />
+                        <img src="img/img_5.jpeg" />
+                        <p class="image-description">Woman taking a picture by the sea. <a href="https://www.pexels.com/photo/woman-holding-black-dslr-camera-669010/">Source</a></p>
+                    </div>
+                    <div class="image-container grow" />
+                        <img src="img/img_6.jpeg" />
+                        <p class="image-description">Woman sitting on ground. <a href="https://www.pexels.com/photo/woman-in-white-top-and-black-distress-jeans-704994/">Source</a></p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div id="overlay">
+            <div id="overlay-close">x</div>
+            <img id="overlay-image" />
+        </div>
+
+        <script>
+            let element = document.getElementById("overlay-close");
+            element.addEventListener("click", function() {
+                document.getElementById("overlay").style.visibility = "collapse";
+            });
+
+            for (let imgContainer of document.getElementsByClassName("image-container")) {
+                imgContainer.addEventListener("click", function() {
+                    let src = imgContainer.getElementsByTagName("img")[0].getAttribute("src");
+                    document.getElementById("overlay-image").setAttribute("src", src);
+
+                    document.getElementById("overlay").style.visibility = "visible";
+                })
+            }
+        </script>
+    </body>
+</html>
