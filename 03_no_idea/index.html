@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <Title>#OUT 03 - No idea</Title>
+    </head>
+    <body>
+        <div class="site-container">
+            <h1>#OUT 03 - No idea</h1>
+            <p>So, no idea for today's #OUT. I'm just gonna look around for ideas on the internet and put some things together in an unstructured way.</p>
+            <p>I even copied some stuff from <a href="https://css-tricks.com">CSS-Tricks</a>.</p>
+            <p>Yeah, using someone else's code - I know. But at least I learned something.</p>
+
+            <h2>Boxes with edges cut off</h2>
+            <div class="cut-off-corners info-box">
+                <h3>Hello</h3>
+                <p>I'm a box</p>
+                <p>Somebody cut off my corners</p>
+            </div>
+
+            <h2>Link with rounded corners</h2>
+            <a href="#" class="rounded-corners-link">Take me to the moon</a>
+
+            <h2>Drag and Drop</h2>
+            <div class="dnd-container">
+                <div class="dnd-panel">
+                    <div class="circle" draggable="true">1</div>
+                    <div class="circle" draggable="true">2</div>
+                </div>
+                <div class="dnd-panel">
+                    <div class="circle" draggable="true">3</div>
+                </div>
+            </div>
+
+            <h2>Knockout text</h2>
+            <div class="backdrop">
+                <p class="text">keep on running</p>
+            </div>
+        </div>
+
+        <script>
+            let dragged;
+
+            function onDragStart(event) {
+                let target = event.target;
+                if (target && target.nodeName === 'DIV') {
+                    dragged = target;
+                    event.dataTransfer.setData('text', target.id);
+                    event.dataTransfer.dropEffect = 'move';
+                    event.target.style.opacity = .3;
+                }
+            }
+
+            function onDragEnd(event) {
+                if (event.target && event.target.nodeName === 'DIV') {
+                    event.target.style.opacity = '';
+                    dragged = null;
+                }
+            }
+
+            const circles = document.getElementsByClassName('circle');
+            for (let circle of circles) {
+                circle.addEventListener('dragstart', onDragStart);
+                circle.addEventListener('dragend', onDragEnd);
+            }
+
+            function onDragOver(event) {
+                // Prevent default to allow drop
+                event.preventDefault();
+            }
+
+            function onDragLeave(event) {
+                event.target.style.background = '';
+            }
+
+            function onDragEnter(event) {
+                const target = event.target;
+                if (target) {
+                    event.preventDefault();
+                    // Set the dropEffect to move
+                    event.dataTransfer.dropEffect = 'move'
+                    target.style.background = '#1f904e';
+                }
+            }
+
+            function onDrop(event) {
+                const target = event.target;
+                if ( target) {
+                    target.style.backgroundColor = '';
+                    event.preventDefault();
+                    // Get the id of the target and add the moved element to the target's DOM
+                    dragged.parentNode.removeChild(dragged);
+                    dragged.style.opacity = '';
+                    target.appendChild(dragged);
+                }
+            }
+
+            let dropZones = document.getElementsByClassName('dnd-panel');
+            for (let dropZone of dropZones) {
+                dropZone.addEventListener('drop', onDrop);
+                dropZone.addEventListener('dragenter', onDragEnter);
+                dropZone.addEventListener('dragleave', onDragLeave);
+                dropZone.addEventListener('dragover', onDragOver);
+            }
+        </script>
+    </body>
+</html>

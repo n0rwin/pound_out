@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+
+.grow:hover { 
+    transform: scale(1.1);
+}
+
+header {
+    height: 240px;
+    width: 100%;
+    background-size: cover;
+    background-image: url("img/title_background_artist.png");
+    position: relative;
+}
+
+.header-text-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #a01c1c;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-radius: 0 10px 0 0;
+}
+
+header h1 {
+    color: white;
+    font-size: 30pt;
+    padding-left: 20px;
+}
+
+.emphasize {
+    font-weight: bold;
+}
+
+.introduction-text {
+    background-color: #734141;
+    width: 100%;
+    height: auto;
+}
+
+.introduction-text p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 16pt;
+    font-family: 'Slabo 27px', serif;
+}
+
+.introduction-text a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.introduction-text a:visited {
+    color: white;
+}
+
+.images {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.images-area {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.images {
+    margin: auto;
+}
+
+.image-container {
+    height: 275px;
+    width: 400px;
+    margin: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    border: 1px solid black;
+
+    box-shadow: 10px 20px 5px black;
+    cursor: pointer;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-container .image-description {
+    visibility: collapse;
+}
+
+.image-container:hover .image-description {
+    visibility: visible;
+}
+
+#overlay {
+    position: fixed;
+    top: 10px;
+    bottom: 10px;
+    width: 90%;    
+    margin-left: 5%;
+    background: rgba(0,0,0,0.8);
+    visibility: collapse;
+}
+
+#overlay-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30pt;
+    color: white;
+    font-family: sans-serif;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+#overlay-image {
+    position: absolute;
+    left:10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    margin: auto;
+}

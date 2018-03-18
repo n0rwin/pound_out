@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #252323;
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+h1, h2 {
+    margin-top: 20px;
+}
+
+.site-container {
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cut-off-corners {
+    --cutSize: 20px;
+
+    clip-path:
+      polygon(
+        0% var(--cutSize),
+        var(--cutSize) 0%,
+        calc(100% - var(--cutSize)) 0%,
+        100% var(--cutSize),
+        100% calc(100% - var(--cutSize)),
+        calc(100% - var(--cutSize)) 100%,
+        var(--cutSize) 100%,
+        0% calc(100% - var(--cutSize))
+      );
+}
+
+.info-box {
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    max-width: 200px;
+    min-height: 100px;
+}
+
+.rounded-corners-link {
+    border: 1px solid white;
+    border-radius: 9999px;
+    padding: 0.1em 1em;
+    color: white;
+    text-decoration: none;
+}
+
+.rounded-corners-link:visited {
+    color: white;
+}
+
+.rounded-corners-link:hover {
+    background-color: white;
+    color: black;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+.dnd-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.dnd-panel {
+    border: 1px solid white;
+    flex: 1 1 100%;
+}
+
+.backdrop {
+    background: url("run.jpeg") center;
+    background-size: contain;
+    margin: auto;
+    width: 75vw;
+}
+
+.text {
+    color:white;
+    background: rgb(77, 70, 70);
+    mix-blend-mode: soft-light;
+    font-size:  12vw;
+    text-align: center;
+    margin: 0;
+}
